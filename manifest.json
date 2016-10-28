@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "网易公开课视频加速",
+  "description": "",
+  "version": "1.0",
+  //侧栏图标设置
+  "browser_action": {
+    "default_icon": "images/daguo64t.png",
+    "default_popup": "popup.html",
+    "default_title": "Click here!"
+  },
+  //注入脚本设置
+  "content_scripts": [{
+    "js": ["contentscript.js"],
+    "matches": ["http://open.163.com/*","https://open.163.com/*"]
+  }],
+  //扩展,商店图标
+  "icons": {
+    "128": "images/daguo128.png",
+    "16": "images/daguo16.png",
+    "48": "images/daguo64t.png"
+  },
+  "permissions": [
+    "tabs",
+    "http://*/"
+  ]
+}
