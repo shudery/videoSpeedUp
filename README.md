@@ -3,7 +3,7 @@
 - 网易公开课
 
 #####实现方法
-将下面代码复制到需要加速的网站地址栏，回车即可，然后通过+，-键控制播放速度
+将下面代码复制到需要加速的网站地址栏，回车即可，然后通过+，-键控制播放速度，视频右上角有当前播放速度的提示
 ```
 javascript:!function(e){function t(n){if(o[n])return o[n].exports;var a=o[n]={exports:{},id:n,loaded:!1};return e[n].call(a.exports,a,a.exports,t),a.loaded=!0,a.exports}var o={};return t.m=e,t.c=o,t.p="",t(0)}([function(e,t,o){e.exports=o(1)},function(e,t){"use strict";!function(){function e(){var e=document.body.innerHTML.replace(/[\s\S]*appsrc : '([\s\S]*?)movie([\s\S]*?)-list\.m3u8'[\s\S]*/,"$1mobilev$2.mp4");return e}function t(){if(!document.getElementById("video")){var t=document.getElementById("FPlayer"),n=740,a=415;t.style.display="none";var d=document.createElement("div"),r=document.createElement("video"),c="width:"+n+"px;height:"+a+"px;position:absolute;top:140px;left:100px;z-index:9999;";r.style=c,r.id="video",r.src=e(),r.controls="controls",r.autoplay="true",d.appendChild(r),document.body.appendChild(d),o(r),console.log("Done:create a palyer of HTML5video and add a tag about playbackRate.")}}function o(e){var t=document.createElement("span"),o="backgroundColor:red;position:absolute;top:150px;left:700px;z-index:9999;color:red";t.style=o,t.id="mySpan",document.body.appendChild(t),document.onkeypress=function(t){var o=t.keyCode||t.which||t.charCode,n=e.playbackRate;switch(o){case 61:n+=.1;break;case 45:n-=.1}n=Math.round(10*n)/10;var a=document.getElementById("mySpan");1===n?a.innerText="":a.innerText="X"+n,console.log("playbackRate:"+n),e.playbackRate=n}}t()}()}]);
 ```
